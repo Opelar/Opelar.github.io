@@ -203,7 +203,7 @@ $(document).ready(function(){
  					// 调用渲染方法 ， 生成html dom
  					var dom = template(obj);
 					// console.log(dom);
- 					$('.list').html(dom);
+ 					$('#trans-list').html(dom);
  					$('.tra-result').show();
  				}
  			})
