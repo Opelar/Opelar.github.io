@@ -145,7 +145,7 @@ body {
 }
 .wrap-tra .form {
 	width: 80%;
-	height: 6.5vh;
+	height: 45px;
 	margin: 0 auto;
 	border-bottom: 1px solid #959595;
 }
@@ -155,7 +155,7 @@ body {
 	border: none;
 	outline: none;
 	background: #ccc;
-	height: 6.5vh;
+	height: 45px;
 	display: block;
 	float: left;
 }
