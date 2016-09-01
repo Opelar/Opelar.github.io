@@ -31,13 +31,11 @@ body {
 	color: #fff;
 }
 .section1 {
-	height: 680px;
 	background: -webkit-linear-gradient(top,#34495e 0%, #ffffff 100%);
 	background: -o-linear-gradient(top,#34495e 0%, #ffffff 100%);
 	background: linear-gradient(top,#34495e 0%, #ffffff 100%);
 }
 .section2 {
-	padding-bottom: 50px;
 	background: -webkit-linear-gradient(bottom,#444 0%, #ffffff 100%);
 	background: -o-linear-gradient(bottom,#444 0%, #ffffff 100%);
 	background: linear-gradient(bottom,#444 0%, #ffffff 100%);
@@ -212,7 +210,8 @@ body {
 .book {
 	width: 320px;
 	height: 35vh;
-	margin: 30px auto;
+	margin: 20px auto;
+	overflow: scroll;
 }
 .book .book-left {
 	width: 150px;
@@ -248,5 +247,7 @@ body {
 	padding-top: 20px;
 	font-size: 14px;
 	line-height: 1.5;
+	height: 28vh;
 	color: #fff;
+	overflow: scroll;
 }
