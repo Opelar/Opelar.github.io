@@ -9,7 +9,7 @@ body {
 #container,
 .sections,
 .section {
-	/*height: 100%;*/
+	height: 100%;
 }
 #container {
 	position: relative;
