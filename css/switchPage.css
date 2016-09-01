@@ -16,7 +16,7 @@ body {
 .sections {
 	width: 400%;
 	position: absolute;
-	left: -200%;/*test*/
+	left: 0;/*test*/
 	transition: left 0.5s;
 }
 .section {
