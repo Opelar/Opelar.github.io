@@ -210,7 +210,7 @@ body {
 .book {
 	width: 320px;
 	height: 35vh;
-	margin: 20px auto;
+	margin: 20px auto 0;
 	overflow: scroll;
 }
 .book .book-left {
@@ -242,6 +242,7 @@ body {
 }
 .content-disc h4 {
 	color: #007722;
+	padding-bottom: 5px;
 }
 .content-disc .disc {
 	padding-top: 20px;
