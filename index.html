@@ -98,9 +98,7 @@
 				<div class="book-right">
 					<h2>{{ title}}</h2>
 					<ul class="list">
-						{{#each author}}
-						<li>作者：<span>{{this }}</span></li>
-						{{/each}}
+						<li>作者：{{#each author}}<span>{{this }}</span>&nbsp;{{/each}}</li>
 						<li>出版社：<span>{{ publisher }}</span></li>
 						{{#each translator}}
 						<li>译者：<span>{{ this }}</span></li>
