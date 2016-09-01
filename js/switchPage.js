@@ -7,29 +7,7 @@ $(document).ready(function(){
 	//滑动函数
 	function animate(i) {
 		if (i == 1) {
-			$.ajax({
-				url: 'https://api.douban.com/v2/book/1220562',
-				type: 'GET',
-				dataType: 'jsonp',
-			})
-			.done(function(obj) {
-				console.log(obj);
-				console.log("success");
-				var tpl1 = $('#tpl_book').html();
-
-				var template = Handlebars.compile(tpl1);
-				// 调用渲染方法 ， 生成html dom
-				var dom = template(obj);
-				// console.log(dom);
-				$('.content').html(dom);
-				// $('.tra-result').show();
-			})
-			.fail(function() {
-				console.log("error");
-			})
-			.always(function() {
-				console.log("complete");
-			});
+			douban_req();
 		}
 
 		$('#list').children().eq(i).addClass('active').siblings().removeClass('active');
@@ -148,72 +126,101 @@ $(document).ready(function(){
 	});
 
 /**
- *  translate
+ *  translate keyup change .btn-click事件以及翻译处理
  */
-
-	 $('input[type="text"]').change(function() {
-		//  alert('123213');
+	 $(document).on('keyup change', 'input[type="text"]', function(){
 		 ajax_translate();
 	 });
+
 	 $('.btn').click(function() {
 		 ajax_translate();
  	 });
 	 function ajax_translate() {
-		 var trans = $('input[type="text"]').val();
- 		 if (trans == '') {
- 			alert('请输入您需要翻译的文本');
- 		 } else {
- 			var url = 'http://fanyi.youdao.com/openapi.do?keyfrom=static-trans&key=252365449&type=data&doctype=jsonp&version=1.1&q='+trans;
- 		    $.ajax({
- 				url: url,
- 				type: 'GET',
- 				dataType: 'jsonp',
- 			})
- 			.done(function(obj) {
- 				console.log("success");
- 				console.log(obj);
- 				var err = obj.errorCode;
- 				switch (err) {
- 					case 0:
- 						show(obj);
- 						break;
- 					case 20:
- 						alert('要翻译的文本过长');
- 						break;
- 					case 30:
- 						alert('无法进行有效的翻译');
- 						break;
- 					case 40:
- 						alert('不支持的语言类型');
- 						break;
- 					case 50:
- 						alert('无效的key');
- 						break;
- 					case 60:
- 						alert('无词典结果，仅在获取词典结果生效');
- 						break;
- 					default:
- 				}
+		var trans = $('input[type="text"]').val();
+		if (trans == '') {
+			$('.tra-result').hide();
+		} else {
+			var url = 'https://fanyi.youdao.com/openapi.do?keyfrom=static-trans&key=252365449&type=data&doctype=jsonp&version=1.1&q='+trans;
+			$.ajax({
+				url: url,
+				type: 'GET',
+				dataType: 'jsonp',
+			})
+			.done(function(obj) {
+				console.log("success");
+				console.log(obj);
+				var err = obj.errorCode;
+				switch (err) {
+					case 0:
+					show(obj);
+					break;
+					case 20:
+					alert('要翻译的文本过长');
+					break;
+					case 30:
+					alert('无法进行有效的翻译');
+					break;
+					case 40:
+					alert('不支持的语言类型');
+					break;
+					case 50:
+					alert('无效的key');
+					break;
+					case 60:
+					alert('无词典结果，仅在获取词典结果生效');
+					break;
+					default:
+				}
 
- 				function show(obj) {
+				function show(obj) {
 					// 获取模板字符串
 					var tpl = $('#tpl').html();
- 					// 生成模板render方法 （预编译）
- 					var template = Handlebars.compile(tpl);
- 					// 调用渲染方法 ， 生成html dom
- 					var dom = template(obj);
+					// 生成模板render方法 （预编译）
+					var template = Handlebars.compile(tpl);
+					// 调用渲染方法 ， 生成html dom
+					var dom = template(obj);
 					// console.log(dom);
- 					$('#trans-list').html(dom);
- 					$('.tra-result').show();
- 				}
- 			})
- 			.fail(function() {
- 				console.log("error");
- 			})
- 			.always(function() {
- 				console.log("complete");
- 			});
- 		}
+					$('#trans-list').html(dom);
+					$('.tra-result').show();
+				}
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});
+		}
 	 }
+/**
+ *  douban_req 函数
+ */
+ function douban_req() {
+	 var param_douban = Math.ceil(Math.random()*1000);
+	 var url_douban = 'https://api.douban.com/v2/book/1220'+param_douban;
+	 $.ajax({
+		 url: url_douban,
+		 type: 'GET',
+		 dataType: 'jsonp',
+	 })
+	 .done(function(obj) {
+		 console.log(obj);
+		 console.log("success");
+		 var tpl1 = $('#tpl_book').html();
+
+		 var template = Handlebars.compile(tpl1);
+		 // 调用渲染方法 ， 生成html dom
+		 var dom = template(obj);
+		 // console.log(dom);
+		 $('.content').html(dom);
+		 // $('.tra-result').show();
+	 })
+	 .fail(function() {
+		 console.log("error");
+	 })
+	 .always(function() {
+		 console.log("complete");
+	 });
+ }
 
 });
