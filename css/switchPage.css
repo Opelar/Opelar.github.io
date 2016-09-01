@@ -2,8 +2,8 @@
 html,
 body {
 	height: 100%;
-	overflow: scroll;
-	overflow-x: hidden;
+	overflow: hidden;
+	/*overflow-x: hidden;*/
 	/* overflow-y: hidden; */
 }
 #container,
