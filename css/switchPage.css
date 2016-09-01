@@ -206,10 +206,11 @@ body {
 /*豆瓣图书*/
 .content {
 	width: 100%;
+	margin-top: 80px;
 }
 .book {
 	width: 320px;
-	height: 35vh;
+	height: 40vh;
 	margin: 20px auto 0;
 	overflow: scroll;
 }
@@ -248,7 +249,7 @@ body {
 	padding-top: 5px;
 	font-size: 14px;
 	line-height: 1.5;
-	height: 20vh;
+	height: 25vh;
 	color: #fff;
 	overflow: scroll;
 }
