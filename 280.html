@@ -6,88 +6,150 @@
 </head>
 
 <style>
-  * {
+  body {
     margin: 0;
     padding: 0;
+    font-size: 62.5%;
+    background-color: #f5f5f5;
   }
+
+  input[type=date]::-webkit-inner-spin-button {
+    visibility: hidden;
+  }
+
+  input[type="date"]::-webkit-clear-button {
+    display: none;
+  }
+
+  .title {
+    text-align: center;
+    padding-top: 15px;
+    color: #ff6666;
+  }
+
+  #form {
+    width: 92%;
+    margin: 0 auto;
+  }
+
   .form-group {
-    padding: 15px 0;
+    width: 100%;
+    height: 50px;
+    display: table;
   }
+
+  .form-group .col {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+  }
+
+  .form-group .col-1 {
+    font-size: 1.5em;
+    color: #565656;
+  }
+
+  :-ms-input-placeholder,
+  ::-webkit-input-placeholder {
+    font-size: 14px;
+  }
+
+  .form-group .col:first-child {
+    width: 4em;
+  }
+
   .start {
     padding: 10px 0;
     text-align: center;
     color: #666666;
   }
-  input#start {
-    width: 90%;
-    height: 40px;
-    display: block;
-    outline: none;
+
+  .col input {
+    width: 100%;
+    height: 36px;
+    margin: 0;
+    padding: 0;
     border: none;
-    margin: 0 auto;
-    border: 1px solid #cdcdcd;
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #dedede;
     border-radius: 2px;
+    font-size: 1.5em;
+    background-color: transparent !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0px 10px;
+    margin: 7px 0;
   }
-  #btn {
-    margin: 10px auto;
-    font-size: 16px;
-    width: 90%;
-    height: 40px;
-    background-color: #ff6666;
-    border-radius: 2px;
-    text-align: center;
-    line-height: 40px;
-    color: #ffffff;
+
+  #start_p {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACkUlEQVRoQ+2Uy2oUQRSGz9+5TLvyIeYdfAUvyCxCGMUQIXFlVskw0FVIpGKkq3shZmXcqIsQgkMIeEPc+Bxu5gXEpWCPZvpIQzU0w+B0T3UTgjXbOZf/+/86DbrkP1xy/eQALjpBl4BLwNIB94QsDbRudwlYW2g5wCVgaaB1u0vA2kLLAf9PAlEUXSWifWb+JqV8YWnc1PY4jjfSNL22tLS02+/3f5TZUToBrfUjAE/N0EMhxFaZBWVrtNZPAOxm9cz8TErZL9NbGiAMw1ue530qDD0QQuyUWTKrJooiQUQ6r2Pme1LKk1l92f+lAbLiKIoeElHx+VhDxHG8zczPc7EAVBAEe2XEVwbIGiYXMvNjKeV+2YXFujoMqZRAvnwycgA7QRAcVIHQWm8CeGX7JOcCyJYWj86I2BJCHJaB0FqvATgqPOG5PwpzA5ibyN7uduH4HkgpX/8LIo7jVWYeFMS/EUJslgGfVmMFYCCyo86O23wBeV1KeTxtWRiGHc/zzohowRQfCyHWAfCFARiIzPWNHAJANwiC06IorfUNIvoAYDEXPxqN7iul0nnFz/UVmraMmRHHcXaQOcQYwN0cwoh/B2DZ9J8mSXLHVnxtAMZRRFF0BGDNiBynaboC4CcRfc7FM/P7dru90u12xzbO573WN1AUoZTyfN9/S0SrBuocwB8iumLqviRJclspdV6H+FoTyAUNBoOF4XB4BqAzITIT31FK/a5LfCMA2VCl1KLv+x+J6LpJ4utoNLpZt/jGAAzEsu/7L5n5e6vV2uv1er/qdL6RG2hC4KyZtR7xrGVN/O8AmnC1ykyXQBW3mqh1CTThapWZLoEqbjVR6xJowtUqM10CVdxqotYl0ISrVWb+Bf/M4jEZRxG4AAAAAElFTkSuQmCC) 98% center no-repeat;
+    background-size: 24px;
   }
-  .rest {
-    text-align: center;
-    padding: 10px 0;
-    color: #666666;
-  }
-  #end {
-    text-align: center;
-    color: #ff6666;
+
+  input#start {
+    opacity: 0;
+    z-index: 10;
   }
 </style>
 
 <body>
-  <form>
+  <h1 class="title">预产期计算</h1>
+  <form id="form">
     <div class="form-group">
-      <h1 class="start">start date</h1>
-      <input id="start" type="date" />
+      <div class="col col-1">末次经:</div>
+      <div class="col">
+        <input id="start" type="date" placeholder="选择日期" />
+        <input id="start_p" type="text" placeholder="选择末次经日期">
+      </div>
     </div>
+
+    <div class="form-group">
+      <div class="col col-1">预产期:</div>
+      <div class="col">
+        <input id="end" readonly="readonly" placeholder="预产期日期" type="text">
+      </div>
+    </div>
+
   </form>
 
-  <div id="btn">开始计算</div>
-
-  <div>
-    <h1 class="rest">280天后:
-      <h2 id="end"></h2>
-    </h1>
-  </div>
 </body>
 
 <script>
-  var $ = function (selector) {
-    return document.getElementById(selector);
-  };
+  (function (win) {
+    var $ = function (selector) {
+      return document.getElementById(selector);
+    };
 
-  var add = function (d) {
-    d.setDate(d.getDate() + 280);
-    return d.toLocaleDateString();
-  }
+    var dateF = function (num) {
+      return num = num < 10 ? ("0" + num) : num;
+    }
 
-  $("btn").addEventListener(
-    "click",
-    function () {
-      $("end").innerHTML = "";
-      var startTime = $("start").value;
-      var utc = new Date(startTime);
+    var add = function (d) {
+      d.setDate(d.getDate() + 280);
+      var y = d.getFullYear();
+      var m = d.getMonth();
+      var day = d.getDate();
 
-      $("end").innerHTML = add(utc);
-    },
-    false
-  );
+      return y + "-" + dateF(m) + "-" + dateF(day);
+    }
+
+    var start = $("start");
+
+    start.addEventListener(
+      "change",
+      function () {
+        var startTime = $("start").value;
+        var utc = new Date(startTime);
+        $("start_p").value = startTime;
+        $("end").value = "";
+
+        $("end").value = add(utc);
+      },
+      false
+    );
+  })(window)
 
 </script>
 
