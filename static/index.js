@@ -295,10 +295,3 @@ canvas.addEventListener("mouseup", function(e) {
 
 // once the window loads, we are ready for some fireworks!
 window.onload = loop;
-
-$(function() {
-  $(document).dblclick(function (e) { 
-    e.preventDefault();
-    alert('I Love You TingTing.Dong!')
-  });
-})
