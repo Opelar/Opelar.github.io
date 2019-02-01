@@ -277,19 +277,21 @@ function loop() {
 
 // mouse event bindings
 // update the mouse coordinates on mousemove
-canvas.addEventListener("mousemove", function(e) {
-  mx = e.pageX - canvas.offsetLeft;
-  my = e.pageY - canvas.offsetTop;
+canvas.addEventListener("touchmove", function(e) {
+  mx = e.changedTouches[0].pageX - canvas.offsetLeft;
+  my = e.changedTouches[0].pageY - canvas.offsetTop;
 });
 
 // toggle mousedown state and prevent canvas from being selected
-canvas.addEventListener("mousedown", function(e) {
+canvas.addEventListener("touchstart", function(e) {
   e.preventDefault();
   mousedown = true;
 });
 
-canvas.addEventListener("mouseup", function(e) {
-  e.preventDefault();
+canvas.addEventListener("touchend", function(e) {
+  // e.preventDefault();
+  mx = e.changedTouches[0].pageX - canvas.offsetLeft;
+  my = e.changedTouches[0].pageY - canvas.offsetTop;
   mousedown = false;
 });
 
