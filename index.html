@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>boom</title>
-  <link rel="stylesheet" href="./static/style.min.css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title v-cloak>鸡巴汤...</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta content="telephone=no" name="format-detection">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta name="viewport" content="width=750,minimum-scale=0.2,maximum-scale=2,user-scalable=no">
   <link rel="shortcut icon " type="images/x-icon" href="./favicon.ico">
-  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./static/base.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+  <script src="./static/jq.ajax.js"></script>
 </head>
 
 <body>
-  <div class="container">
-    <a href="./boom.html" class="btn btn-primary">boom</a>
+  <div class="index clearfix" id="root">
+    <h2 class="title">心灵<span class="masked">JB</span>汤</h2>
+    <div class="cont">
+      <div class="text">{{ text }}</div> 
+      <a href="javascript:;" @click="getNext" class="check bubbly-button">再来一碗</a>
+    </div>
+    <span id="busuanzi_container_site_pv" class="pv" style="display: inline;">
+      已有<span id="busuanzi_value_site_pv">{{ pv }}</span>人喝了这碗毒鸡汤
+    </span>
   </div>
+  <script src="./static/index.min.js" charset="utf-8"></script>
+  <script>
+    var animateButton = function (e) {
+      e.preventDefault;
+      e.target.classList.remove('animate');
+      e.target.classList.add('animate');
+      setTimeout(function () {
+        e.target.classList.remove('animate');
+      }, 700);
+    };
+    var classname = document.getElementsByClassName("bubbly-button");
+    for (var i = 0; i < classname.length; i++) {
+      classname[i].addEventListener('click', animateButton, false);
+    }
+  </script>
+
 </body>
 
 </html>
