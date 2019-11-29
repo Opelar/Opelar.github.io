@@ -1224,21 +1224,12 @@ var v = new Vue({
       '岁什么化妆品都不用，岁什么化妆品都没用。',
       '你妹是个好姑娘，替你妈分担了很多。']
     ,
-    onlist: [],
-    helist: [],
     text: '',
     localList: [],
-    w: false,
     pv: Math.floor(Math.random() * 100000)
   },
 
   methods: {
-    showWechat() {
-      this.w = true
-    },
-    hiWechat() {
-      this.w = false
-    },
     getNext() {
       let me = this
       $.ajax({
@@ -1285,3 +1276,17 @@ var v = new Vue({
     localStorage.setItem('defaultList', JSON.stringify(this.defaultList));
   }
 })
+
+
+var animateButton = function (e) {
+  e.preventDefault;
+  e.target.classList.remove('animate');
+  e.target.classList.add('animate');
+  setTimeout(function () {
+    e.target.classList.remove('animate');
+  }, 700);
+};
+var classname = document.getElementsByClassName("next-btn");
+for (var i = 0; i < classname.length; i++) {
+  classname[i].addEventListener('click', animateButton, false);
+}

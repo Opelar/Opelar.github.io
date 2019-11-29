@@ -8,25 +8,25 @@ html, body {
 	width: 100%;
 	overflow: hidden;
 }
-.index{
+.container{
 	position: relative;
 	width: 100%;
 	height: 100%;
 	font-family: Alibaba Sans,SF Pro SC,SF Pro Text,SF Pro Icons,PingFang SC,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
-.index .header{
+.container .header{
 	position: relative;
 	height: 100px;
 }
 
-.index .title {
+.container .title {
 	font-size: 60px;
 	color: #fff;
 	text-align: center;
 	margin: 0;
 	padding: 70px 0;
 }
-.index .cont{
+.container .cont{
 	width: 100%;
 	position: absolute;
 	top: 50%;
@@ -82,7 +82,7 @@ html, body {
 	bottom: 18px;
 	text-align: center;
 }
-.pv #busuanzi_value_site_pv {
+.pv #site_pv {
 	font-weight: bold;
 	margin: 0 10px;
 }
@@ -102,15 +102,15 @@ html, body {
 		padding: 20px 120px;
 	}
 	.pv,
-	#busuanzi_value_site_pv{
+	#site_pv{
 		font-size: 20px;
 	}
-	.index .w {
+	.container .w {
 		width: 450px;
 	}
 }
 
-.bubbly-button {
+.next-btn {
 	font-family: 'Helvetica', 'Arial', sans-serif;
 	display: inline-block;
 	font-size: 1em;
@@ -128,10 +128,10 @@ html, body {
 	transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
 	box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
 }
-.bubbly-button:focus {
+.next-btn:focus {
 	outline: 0;
 }
-.bubbly-button:before, .bubbly-button:after {
+.next-btn:before, .next-btn:after {
 	position: absolute;
 	content: '';
 	display: block;
@@ -142,28 +142,28 @@ html, body {
 	transition: all ease-in-out 0.5s;
 	background-repeat: no-repeat;
 }
-.bubbly-button:before {
+.next-btn:before {
 	display: none;
 	top: -75%;
 	background-image: radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, transparent 20%, #fff 20%, transparent 30%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, transparent 10%, #fff 15%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%);
 	background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
 }
-.bubbly-button:after {
+.next-btn:after {
 	display: none;
 	bottom: -75%;
 	background-image: radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, transparent 10%, #fff 15%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%);
 	background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
 }
-.bubbly-button:active {
+.next-btn:active {
 	transform: scale(0.9);
 	background-color: #fff;
 	box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
 }
-.bubbly-button.animate:before {
+.next-btn.animate:before {
 	display: block;
 	animation: topBubbles ease-in-out 0.75s forwards;
 }
-.bubbly-button.animate:after {
+.next-btn.animate:after {
 	display: block;
 	animation: bottomBubbles ease-in-out 0.75s forwards;
 }
