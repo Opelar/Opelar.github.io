@@ -1269,6 +1269,7 @@ var v = new Vue({
         const randomIndex = me.getRandomIntInclusive(0, me.defaultList.length - 1)
         me.text = me.localList[randomIndex]
         document.title = this.text
+        me.pv = Math.floor(Math.random() * 100000)
       }
     }
   },
