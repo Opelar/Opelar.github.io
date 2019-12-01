@@ -1232,29 +1232,30 @@ var v = new Vue({
   methods: {
     getNext() {
       let me = this
-      $.ajax({
-        type: 'get',
-        url: 'https://soulposion.utilapi.bid/json',
-        dataType: 'json',
-        jsonp: 'callback',
-        success: function (res) {
-          if (res && res.content) {
-            if (res.content.includes('�')) {
-              me.getLocal()
-            } else {
-              me.text = res.content;
-              document.title = me.text
-            }
-          } else {
-            me.getLocal()
-          }
-          me.pv = Math.floor(Math.random() * 100000)
-        },
-        error: function (error) {
-          console.log(error);
-          me.getLocal()
-        }
-      })
+      me.getLocal()
+      // $.ajax({
+      //   type: 'get',
+      //   url: 'https://soulposion.utilapi.bid/json',
+      //   dataType: 'json',
+      //   jsonp: 'callback',
+      //   success: function (res) {
+      //     if (res && res.content) {
+      //       if (res.content.includes('�')) {
+      //         me.getLocal()
+      //       } else {
+      //         me.text = res.content;
+      //         document.title = me.text
+      //       }
+      //     } else {
+      //       me.getLocal()
+      //     }
+      //     me.pv = Math.floor(Math.random() * 100000)
+      //   },
+      //   error: function (error) {
+      //     console.log(error);
+      //     me.getLocal()
+      //   }
+      // })
     },
     getRandomIntInclusive(min, max) {
       min = Math.ceil(min);
