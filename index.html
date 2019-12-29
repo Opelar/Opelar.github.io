@@ -5,11 +5,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>index</title>
+  <title>主页</title>
+  <link rel="shortcut icon " type="images/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./home/index.css">
 </head>
 
 <body>
-  <div id="roow">hello world</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 me-header">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
+          <title>富强，民主，和谐，友爱，敬业...</title>
+          <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+        </svg>
+        <h2>mingliang.zheng</h2>
+        <div class="me-labels">
+          <span class="badge badge-info">javscript</span>
+          <span class="badge badge-info">css</span>
+          <span class="badge badge-info">html</span>
+          <span class="badge badge-info">react</span>
+          <span class="badge badge-info">vue</span>
+        </div>
+      </div><!-- /.col-lg-4 -->
+    </div>
+
+    <div class="list-group">
+      <a href="./soul/index.html" class="list-group-item active">
+        <h4 class="list-group-item-heading">心灵JB汤</h4>
+        <p class="list-group-item-text">每日一句心灵JB汤，强身又健体</p>
+      </a>
+      <a href="./boom/boom.html" class="list-group-item active">
+        <h4 class="list-group-item-heading">烟花</h4>
+        <p class="list-group-item-text">好玩的canvas烟花效果</p>
+      </a>
+    </div>
+  </div>
 </body>
 
 </html>
