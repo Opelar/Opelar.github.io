@@ -1264,7 +1264,7 @@ var v = new Vue({
     },
     getLocal() {
       const me = this;
-      me.localList = JSON.parse(localStorage.getItem('defaultList'))
+      me.localList = JSON.parse(localStorage.getItem('defaultList')) || []
       if (me.localList.length) {
         const randomIndex = me.getRandomIntInclusive(0, me.defaultList.length - 1)
         me.text = me.localList[randomIndex]
